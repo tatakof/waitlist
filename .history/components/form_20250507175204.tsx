@@ -55,7 +55,7 @@ export default function Form({
           iconPlacement="right"
           className="mt-2 w-full"
           disabled={loading}>
-          {loading ? "Loading..." : "anotate!"}
+          {loading ? "Loading..." : "Join Waitlist!"}
         </EnhancedButton>
       </motion.div>
       <motion.div

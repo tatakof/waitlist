@@ -109,22 +109,23 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center overflow-x-clip">
-      <section className="flex flex-col items-center gap-12 px-4 sm:px-6 lg:px-8">
+    <main className="flex min-h-screen flex-col items-center overflow-x-clip">
+      <section className="flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 gap-24">
+        <div className="flex-1 flex items-center justify-center">
+          <CTA />
+        </div>
 
-        <CTA />
-
-        <Form
-          name={name}
-          email={email}
-          handleNameChange={handleNameChange}
-          handleEmailChange={handleEmailChange}
-          handleSubmit={handleSubmit}
-          loading={loading}
-        />
-
+        <div className="flex-1 flex items-center justify-center">
+          <Form
+            name={name}
+            email={email}
+            handleNameChange={handleNameChange}
+            handleEmailChange={handleEmailChange}
+            handleSubmit={handleSubmit}
+            loading={loading}
+          />
+        </div>
       </section>
-
 
       <Particles
         quantityDesktop={350}

@@ -6,7 +6,7 @@ import { containerVariants, itemVariants } from "@/lib/animation-variants";
 export default function CTA() {
   return (
     <motion.div
-      className="flex w-full max-w-2xl flex-col items-center gap-6"
+      className="flex w-full max-w-2xl flex-col gap-2"
       variants={containerVariants}
       initial="hidden"
       animate="visible">

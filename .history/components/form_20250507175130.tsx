@@ -5,7 +5,6 @@ import { FaGithub, FaXTwitter } from "react-icons/fa6";
 import { Input } from "@/components/ui/input";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { EnhancedButton } from "@/components/ui/enhanced-btn";
-import { FaDiscord } from "react-icons/fa";
 import { containerVariants, itemVariants } from "@/lib/animation-variants";
 
 interface FormProps {
@@ -55,7 +54,7 @@ export default function Form({
           iconPlacement="right"
           className="mt-2 w-full"
           disabled={loading}>
-          {loading ? "Loading..." : "anotate!"}
+          {loading ? "Loading..." : "Join Waitlist!"}
         </EnhancedButton>
       </motion.div>
       <motion.div

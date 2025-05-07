@@ -6,7 +6,7 @@ import { containerVariants, itemVariants } from "@/lib/animation-variants";
 export default function CTA() {
   return (
     <motion.div
-      className="flex w-full max-w-2xl flex-col items-center gap-6"
+      className="flex w-full max-w-2xl flex-col gap-2"
       variants={containerVariants}
       initial="hidden"
       animate="visible">
@@ -21,19 +21,19 @@ export default function CTA() {
       </motion.div>
 
       <motion.img
-        src="/logo_gradiente.png"
+        src="/logo_gradiente.jpg"
         alt="logo"
         className="mx-auto h-24 w-24"
         variants={itemVariants}
       />
 
-      <motion.div variants={itemVariants} className="flex flex-col items-center gap-2">
+      <motion.div variants={itemVariants}>
         <TextBlur
-          className="text-center text-4xl font-medium tracking-tighter sm:text-6xl"
+          className="text-center text-3xl font-medium tracking-tighter sm:text-5xl"
           text="gradienteSur"
         />
         <TextBlur
-          className="text-center text-xl font-medium tracking-tighter text-zinc-400 sm:text-2xl"
+          className="text-center text-3xl font-medium tracking-tighter sm:text-5xl"
           text="| general-computing |"
         />
       </motion.div>
@@ -41,8 +41,7 @@ export default function CTA() {
       <motion.div variants={itemVariants}>
         <TextBlur
           className="mx-auto max-w-[27rem] pt-1.5 text-center text-base text-zinc-300 sm:text-lg"
-          //text="disponible a partir del 12 de mayo"
-          text=""
+          text="disponible a partir del 12 de mayo"
           duration={0.8}
         />
       </motion.div>

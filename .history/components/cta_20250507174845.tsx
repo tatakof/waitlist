@@ -6,7 +6,7 @@ import { containerVariants, itemVariants } from "@/lib/animation-variants";
 export default function CTA() {
   return (
     <motion.div
-      className="flex w-full max-w-2xl flex-col items-center gap-6"
+      className="flex w-full max-w-2xl flex-col gap-2"
       variants={containerVariants}
       initial="hidden"
       animate="visible">
@@ -41,8 +41,7 @@ export default function CTA() {
       <motion.div variants={itemVariants}>
         <TextBlur
           className="mx-auto max-w-[27rem] pt-1.5 text-center text-base text-zinc-300 sm:text-lg"
-          //text="disponible a partir del 12 de mayo"
-          text=""
+          text="disponible a partir del 12 de mayo"
           duration={0.8}
         />
       </motion.div>
