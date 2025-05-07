@@ -14,7 +14,7 @@ export default function CTA() {
         <div className="flex items-center justify-center">
           <div className="flex w-fit items-center justify-center rounded-full bg-muted/80 text-center">
             <AnimatedShinyText className="px-4 py-1">
-              <span>viene pronto</span>
+              <span>pronto</span>
             </AnimatedShinyText>
           </div>
         </div>
@@ -42,7 +42,7 @@ export default function CTA() {
         <TextBlur
           className="mx-auto max-w-[27rem] pt-1.5 text-center text-base text-zinc-300 sm:text-lg"
           //text="disponible a partir del 12 de mayo"
-          text=""
+          text="waitlist"
           duration={0.8}
         />
       </motion.div>
