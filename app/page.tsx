@@ -10,16 +10,11 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 export default function Home() {
-  const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
-  };
-
-  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
   };
 
   const isValidEmail = (email: string) => {
@@ -28,7 +23,7 @@ export default function Home() {
   };
 
   const handleSubmit = async () => {
-    if (!name || !email) {
+    if (!email) {
       toast.error("Please fill in all fields 😠");
       return;
     }
@@ -49,7 +44,7 @@ export default function Home() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ firstname: name, email }),
+          body: JSON.stringify({ email }),
         });
 
         if (!mailResponse.ok) {
@@ -67,7 +62,7 @@ export default function Home() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ name, email }),
+          body: JSON.stringify({ email }),
         });
 
         if (!notionResponse.ok) {
@@ -77,7 +72,7 @@ export default function Home() {
             reject("Notion insertion failed");
           }
         } else {
-          resolve({ name });
+          resolve({});
         }
       } catch (error) {
         reject(error);
@@ -87,7 +82,6 @@ export default function Home() {
     toast.promise(promise, {
       loading: "Getting you on the waitlist... 🚀",
       success: (data) => {
-        setName("");
         setEmail("");
         return "Thank you for joining the waitlist 🎉";
       },
@@ -115,9 +109,7 @@ export default function Home() {
         <CTA />
 
         <Form
-          name={name}
           email={email}
-          handleNameChange={handleNameChange}
           handleEmailChange={handleEmailChange}
           handleSubmit={handleSubmit}
           loading={loading}

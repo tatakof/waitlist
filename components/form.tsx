@@ -9,18 +9,14 @@ import { FaDiscord } from "react-icons/fa";
 import { containerVariants, itemVariants } from "@/lib/animation-variants";
 
 interface FormProps {
-  name: string;
   email: string;
-  handleNameChange: (e: ChangeEvent<HTMLInputElement>) => void;
   handleEmailChange: (e: ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: () => void;
   loading: boolean;
 }
 
 export default function Form({
-  name,
   email,
-  handleNameChange,
   handleEmailChange,
   handleSubmit,
   loading,
@@ -31,14 +27,6 @@ export default function Form({
       variants={containerVariants}
       initial="hidden"
       animate="visible">
-      <motion.div variants={itemVariants}>
-        <Input
-          type="text"
-          placeholder="nombre"
-          value={name}
-          onChange={handleNameChange}
-        />
-      </motion.div>
       <motion.div variants={itemVariants}>
         <Input
           type="email"
@@ -61,13 +49,13 @@ export default function Form({
       <motion.div
         variants={itemVariants}
         className="mt-4 flex w-full items-center justify-center gap-1 text-muted-foreground">
-        <p>o contactanos por </p>
+        {/* <p>o contactanos por </p>
         <Link
           href="https://discord.gg/yourserver"
           rel="noopener noreferrer"
           target="_blank">
           <FaDiscord className="h-4 w-4 transition-all duration-200 ease-linear hover:text-indigo-400" />
-        </Link>
+        </Link> */}
       </motion.div>
     </motion.div>
   );
