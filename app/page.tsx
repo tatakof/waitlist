@@ -104,7 +104,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center overflow-x-clip">
-      <section className="flex flex-col items-center gap-12 px-4 sm:px-6 lg:px-8">
+      <section className="flex flex-col items-center gap-0 px-4 pt-16 sm:px-6 lg:px-8">
 
         <CTA />
 
