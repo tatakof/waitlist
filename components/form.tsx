@@ -31,7 +31,7 @@ export default function Form({
           reject("el email es requerido.");
           return;
         }
-        const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
           reject("por favor ingresa un email válido.");
           return;

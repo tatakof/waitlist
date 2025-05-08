@@ -18,7 +18,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    return NextResponse.json({ message: 'Email added to waitlist', data }, { status: 201 });
+    return NextResponse.json({ message: '', data }, { status: 201 });
   } catch (error) {
     console.error('API error:', error);
     let errorMessage = 'Internal Server Error';
