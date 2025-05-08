@@ -20,13 +20,6 @@ export const NotionWaitlistEmail = ({ userFirstname }: EmailProps) => (
     <Preview>Thanks for Joining the Waitlist, {userFirstname}! 🎉</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Img
-          src={`https://nextjs-notion-waitlist.vercel.app/waitlist-logo.png`}
-          width="220"
-          height="100"
-          alt="Notion Waitlist Logo"
-          style={logo}
-        />
         <Text style={greeting}>Hi {userFirstname},</Text>
         <Text style={paragraph}>
           Thanks for joining the waitlist for our Next.js + Notion CMS waitlist

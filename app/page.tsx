@@ -1,5 +1,7 @@
 "use client";
 
+export const runtime = "edge";
+
 // import { toast } from "sonner"; // No longer needed here
 import { useState } from "react";
 import CTA from "@/components/cta";
