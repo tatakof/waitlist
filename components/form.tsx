@@ -1,26 +1,84 @@
+'use client';
+
 import Link from "next/link";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaXTwitter } from "react-icons/fa6";
 import { Input } from "@/components/ui/input";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { EnhancedButton } from "@/components/ui/enhanced-btn";
-import { FaDiscord } from "react-icons/fa";
 import { containerVariants, itemVariants } from "@/lib/animation-variants";
+import { toast } from "sonner";
 
 interface FormProps {
   email: string;
   handleEmailChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  handleSubmit: () => void;
-  loading: boolean;
 }
 
 export default function Form({
   email,
   handleEmailChange,
-  handleSubmit,
-  loading,
 }: FormProps) {
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const internalHandleSubmit = async () => {
+    setIsLoading(true);
+    setMessage("");
+
+    const submissionPromise = new Promise(async (resolve, reject) => {
+      try {
+        if (!email) {
+          reject("el email es requerido.");
+          return;
+        }
+        const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+        if (!emailRegex.test(email)) {
+          reject("por favor ingresa un email válido.");
+          return;
+        }
+
+        const response = await fetch('/api/waitlist', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          reject(result.error || 'algo no salió bien.');
+        } else {
+          resolve(result.message || 'te uniste al waitlist! \\n vas a recibir un mail pronto.');
+        }
+      } catch (error) {
+        console.error("Submit error:", error);
+        reject('ocurrió un error. intentalo de nuevo.');
+      }
+    });
+
+    toast.promise(submissionPromise, {
+      loading: 'procesando...',
+      success: (successMessage) => {
+        setMessage(String(successMessage).replace(/\\n/g, '\n'));
+        return String(successMessage).replace(/\\n/g, '\n');
+      },
+      error: (errorMessage) => {
+        setMessage(String(errorMessage));
+        return String(errorMessage);
+      },
+    });
+
+    try {
+      await submissionPromise;
+    } catch (e) {
+      // Errors are handled by toast.promise error handler and setMessage within it.
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <motion.div
       className="mt-6 flex w-full max-w-[24rem] flex-col gap-2"
@@ -33,19 +91,27 @@ export default function Form({
           placeholder="email"
           value={email}
           onChange={handleEmailChange}
+          disabled={isLoading}
         />
       </motion.div>
       <motion.div variants={itemVariants}>
         <EnhancedButton
           variant="expandIcon"
           Icon={FaArrowRightLong}
-          onClick={handleSubmit}
+          onClick={internalHandleSubmit}
           iconPlacement="right"
           className="mt-2 w-full"
-          disabled={loading}>
-          {loading ? "Loading..." : "anotate"}
+          disabled={isLoading}>
+          {isLoading ? "Loading..." : "anotate"}
         </EnhancedButton>
       </motion.div>
+      {message && (
+        <motion.p
+          variants={itemVariants}
+          className={`mt-2 text-sm ${message.includes('te uniste al waitlist!') ? 'text-green-500' : 'text-red-500'}`}>
+          {message}
+        </motion.p>
+      )}
       <motion.div
         variants={itemVariants}
         className="mt-4 flex w-full items-center justify-center gap-1 text-muted-foreground">
