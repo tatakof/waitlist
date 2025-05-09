@@ -42,7 +42,7 @@ export default function Form({
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email }),
+          body: JSON.stringify({ email, timestamp: new Date().toISOString() }),
         });
 
         const result = await response.json();
