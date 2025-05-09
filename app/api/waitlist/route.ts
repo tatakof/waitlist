@@ -5,7 +5,7 @@ export const runtime = "edge";
 
 export async function POST(request: Request) {
   try {
-    const { email } = await request.json();
+    const { email, timestamp } = await request.json();
 
     if (!email) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 });
@@ -13,7 +13,7 @@ export async function POST(request: Request) {
 
     const { data, error } = await supabase
       .from('waitlist')
-      .insert([{ email: email }]);
+      .insert([{ email: email, timestamp: timestamp }]);
 
     if (error) {
       console.error('Supabase error:', error);
