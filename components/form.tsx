@@ -33,7 +33,7 @@ export default function Form({
         }
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-          reject("por favor ingresa un email válido.");
+          reject("por favor ingresá un email válido.");
           return;
         }
 
@@ -50,7 +50,7 @@ export default function Form({
         if (!response.ok) {
           reject(result.error || 'algo no salió bien.');
         } else {
-          resolve(result.message || 'te uniste al waitlist! \\n vas a recibir un mail pronto.');
+          resolve(result.message || 'te uniste al waitlist! \\n pronto vas a recibir un mail.');
         }
       } catch (error) {
         console.error("Submit error:", error);
@@ -102,7 +102,7 @@ export default function Form({
           iconPlacement="right"
           className="mt-2 w-full"
           disabled={isLoading}>
-          {isLoading ? "Loading..." : "anotate"}
+          {isLoading ? "Loading..." : "anotate al waitlist"}
         </EnhancedButton>
       </motion.div>
       {message && (
