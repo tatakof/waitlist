@@ -13,7 +13,7 @@ export default function CTA() {
       <motion.div variants={itemVariants}>
         <div className="flex items-center justify-center">
           <div className="flex w-fit items-center justify-center rounded-full bg-muted/80 text-center">
-            <AnimatedShinyText className="px-4 py-1">
+            <AnimatedShinyText className="px-2 py-1">
               <span>pronto</span>
             </AnimatedShinyText>
           </div>
@@ -23,7 +23,7 @@ export default function CTA() {
       <motion.img
         src="/logo_gradiente.png"
         alt="logo"
-        className="mx-auto h-24 w-24"
+        className="mx-auto h-32 w-32"
         variants={itemVariants}
       />
 
@@ -35,15 +35,6 @@ export default function CTA() {
         <TextBlur
           className="text-center text-xl font-medium tracking-tighter text-zinc-400 sm:text-2xl"
           text="| general-computing |"
-        />
-      </motion.div>
-
-      <motion.div variants={itemVariants}>
-        <TextBlur
-          className="mx-auto max-w-[27rem] pt-1.5 text-center text-base text-zinc-300 sm:text-lg"
-          //text="disponible a partir del 12 de mayo"
-          text="waitlist"
-          duration={0.8}
         />
       </motion.div>
     </motion.div>
