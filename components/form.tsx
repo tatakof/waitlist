@@ -115,7 +115,7 @@ export default function Form({
       <motion.div
         variants={itemVariants}
         className="mt-4 flex w-full items-center justify-center gap-1 text-muted-foreground">
-         <p>o contactanos por </p>
+         <p>y sumate al </p>
         <Link
           href="https://discord.com/invite/yGCCUhqtpS"
           rel="noopener noreferrer"
