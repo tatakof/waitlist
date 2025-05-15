@@ -8,7 +8,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { EnhancedButton } from "@/components/ui/enhanced-btn";
 import { containerVariants, itemVariants } from "@/lib/animation-variants";
 import { toast } from "sonner";
-
+import { FaDiscord } from "react-icons/fa";
 interface FormProps {
   email: string;
   handleEmailChange: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -115,13 +115,13 @@ export default function Form({
       <motion.div
         variants={itemVariants}
         className="mt-4 flex w-full items-center justify-center gap-1 text-muted-foreground">
-        {/* <p>o contactanos por </p>
+         <p>o contactanos por </p>
         <Link
-          href="https://discord.gg/yourserver"
+          href="https://discord.com/invite/yGCCUhqtpS"
           rel="noopener noreferrer"
           target="_blank">
           <FaDiscord className="h-4 w-4 transition-all duration-200 ease-linear hover:text-indigo-400" />
-        </Link> */}
+        </Link>
       </motion.div>
     </motion.div>
   );
